@@ -1,4 +1,14 @@
-// Samples pixels in an image.
+/*
+This program uses the input of a mouse/joystick location to allow the user to explore and learn about Brisbane City.
+Users are able to use both a Joystick to move around an in-game camera reticle [mapped to the arrow keys]
+As well as 3 buttons [mapped to the 1, 2, and 3 keys respectively], which have zoom in/zoom out, and selection properties respectively.
+
+Evie Coombs - n11542071
+
+I used "Copying from an image" - W4 (2) as a basis for the code, and expanded, modified, and added my own flair from there.
+*/
+
+// Setup of various variables and arrays
 let img;
 let piece;
 let mx = 0;
@@ -9,13 +19,6 @@ let clickedLocations = [];
 let matchingLocations = [0];
 let firstDraw = true;
 
-/*
-Stuff to do:
-* Create an if statement to check what matchingLocations is called, and display information about that location.
-* Comment everything.
-* Make it prettier.
-*/
-
 function preload() { img = loadImage("Brisbane.png"); }
 
 function setup()
@@ -24,7 +27,8 @@ function setup()
   noCursor();
   stroke(0);
   noFill();
-
+  
+  //Grab a part of the non-scaled image
   piece = img.get(500,500,1000,1000);
   
   //Setup places on map to be selectable
@@ -45,16 +49,20 @@ function setup()
 
 function draw()
 {
-  
   background(0);
   scale(0.33);
   textSize(50);
   fill("white");
+  
   if(firstDraw)
     {
       text(Intro_Text, 1550, 50, 725);
     }
+  
   image(img, 0, 0);
+  
+  
+  //This little for loop allows the text pop-up for each location to happen, by calling displayInfo().
   for (let i = 0; i < matchingLocations.length; i++)
   {
     
@@ -68,7 +76,7 @@ function draw()
         displayInfo(testString, i);
       }
   }
-  
+  //Storing the mouse's position, locked between the width and height of the main imae
   mouseX = map(mouseX, 0, width-250, 0, 500, true)
   mx = mouseX*3;
   mouseY = map(mouseY, 0, height, 0, 500, true)
@@ -96,6 +104,8 @@ function displayInfo(inputText, i)
 {
   fill("#ffffff")
   textSize(50);
+  
+  //if the inputted variable is a specific coordinate, then display text relevant to said coordinate.
   switch(inputText)
     {
       case "458, -7":
@@ -141,13 +151,17 @@ function displayInfo(inputText, i)
   noFill();
 }
 
+//QoL functionality for editing - just mimics the 1/2 button presses
 function mouseWheel(event) 
 {
   if(zoomLevel != 50) { if (event.delta > 0) zoomLevel -= 10; }
   if(zoomLevel != 150) { if (event.delta < 0) zoomLevel += 10; }
 }
 
+//I could not get the below function to work without this dreaded n = -1 line. It honestly stumped me, so I've just left it as it just *works*.
 let n = -1;
+
+//User Input Controls:
 function keyPressed()
 {
   if (key === "1")
@@ -183,11 +197,15 @@ function keyPressed()
   if (keyCode === DOWN_ARROW) { mouseY += 10; }
   
 }
+
+//Check to see if the mouse click was within an acceptable radius around a landmark.
 function isWithinRadius(clicked, key, radius = 23) {
   const dx = clicked[0] - key[0]*0.33;
   const dy = clicked[1] - key[1]*0.33;
   return Math.sqrt(dx * dx + dy * dy) <= radius;
 }
+
+//Needed a value based equality function - why JS doesn't have this astounds me, I may have just missed it somewhere.
 function arraysEqual(a, b) {
   return Array.isArray(a) && Array.isArray(b) &&
          a.length === b.length &&
