@@ -221,7 +221,7 @@ let QUTGP =
 
 //NOTE, as stated in the references, the following text was generated through the use of CHAT GPT. The QUTKG and QUTGP, as well as Intro_Text above, were written by me.
 let BBotanicalG = 
-`Located at Mt Coot-tha, the Brisbane Botanic Gardens offer 56 hectares of subtropical and international plant collections, a tropical dome, and Japanese garden. They're a key space for environmental education, recreation, and research, and serve as Brisbane’s premier botanic garden, distinct from the City Botanic Gardens in the CBD.`;
+`Located at Gardens Point near QUT, the Brisbane City Botanic Gardens is the city’s oldest parkland, dating back to 1828. Once used for food crops by convicts, it now features ornamental lakes, rare tropical plants, and shaded walking paths. As a peaceful riverside retreat in the CBD, it hosts events, markets, and cultural gatherings, playing a vital role in Brisbane’s green identity and daily urban life.`;
 let BLane = 
 `Bakery Lane is a vibrant laneway featuring indie boutiques, coffee shops, and creative studios. It forms part of Fortitude Valley’s revitalized laneway network, linking to Winn and California Lanes. Together, these lanes support local artists and small businesses, reinforcing Brisbane’s reputation for fostering grassroots creativity and culture.`;
 let WLane = 
