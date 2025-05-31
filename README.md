@@ -1,0 +1,10 @@
+# DXB211-A2
+Link: https://helping-gingers.github.io/DXB211-A2/
+
+
+Hello! Welcome to this interactive experience to learn about Brisbane's Inner City!
+To begin, use the joystick to move your interaction field around the screen.
+This field can be magnified using the "1" key, or zoomed out using the "2" key.
+To select one of the regions on the map, highlighted by a black square, hover over the object and hit "3".
+To hide the description of a location, simply hit "3" on a highlighted region again :).
+I hope you enjoy learning in this experience, and enjoy exploring Brisbane, Queensland!
